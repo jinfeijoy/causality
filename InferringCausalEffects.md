@@ -134,7 +134,18 @@
             * it contains a fork (D<-E->F) and the middle part is in C OR
             * it contains an inverted fork (D->E<-F) and the middle part is not in C, nor are any descendants of it
       * two nodes, A and B, are d-seperated by a set of nodes C if it blocks every path from A to B
+         * then: A independent from B conditional on C
+         * recall the ignorability assumption: Y0,Y1 independent from A conditional on X 
 * Confounding revisited
+   * frontdoor path: from A to Y is one that begins with an arrow emanating out of A
+      *![Screen Shot 2024-06-04 at 11 48 19 AM](https://github.com/jinfeijoy/causality/assets/16402963/b2982e4b-d69f-420d-84be-18530e4fd44d)
+      * we do not worry about front door paths, because they capture effects of treatment
+      * we care about if we manipulate A, how is Y affected? , controling for Z would be controlling for an effect of treatment.
+      * causal mediation analysis involves understanding frontdoor paths from A to Y
+   * backdoor path: from treatment A to outcome Y are paths from A to Y that travel through arraows going into A:
+      * ![Screen Shot 2024-06-04 at 11 48 46 AM](https://github.com/jinfeijoy/causality/assets/16402963/39a2b29d-1d70-4faa-ad9f-9202f87adb9d)
+      * Here A<-X->Y is a backdoor path from A to Y
+ 
 * Backdoor path criterion
 * Disjunctive cause criterion
 
