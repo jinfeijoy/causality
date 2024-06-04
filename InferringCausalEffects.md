@@ -148,8 +148,16 @@
       * backdoor paths confound the relationship between A and Y, those need to be blocked.
       * to sufficiently control for confounding, must identify a set of variables that block all backdoor paths from treatment to outcome.
       * if X is this set of variables, then: Y0, Y1 independent A given X
- 
-* Backdoor path criterion
+* Backdoor path criterion: to use for variable selection for controlling
+   * sufficient sets of confounders:
+      * it blocks all backdoor paths from treatment to the outcome
+      * it does not include any descendants of treatment
+      * not necessary unique
+      * ![Screen Shot 2024-06-04 at 11 58 58 AM](https://github.com/jinfeijoy/causality/assets/16402963/d147c1c9-0b34-4153-b830-07eec2b3bcc0)
+      * ![Screen Shot 2024-06-04 at 12 00 12 PM](https://github.com/jinfeijoy/causality/assets/16402963/7b1bc246-1784-4dd5-a5f7-af2d86b83a53)
+      * ![Screen Shot 2024-06-04 at 12 01 16 PM](https://github.com/jinfeijoy/causality/assets/16402963/5084f3be-2890-48bd-a5e6-f5f1b99b0f94)
+
+
 * Disjunctive cause criterion
 
    
