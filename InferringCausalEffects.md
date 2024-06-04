@@ -2,33 +2,83 @@
 
 ## Week1
 * Confusion over Causality
-  * ![causal1](https://github.com/jinfeijoy/causality/assets/16402963/ac59106b-ab90-4e5d-bcb9-6ab5c4c4f46b)
-  * ![causal2](https://github.com/jinfeijoy/causality/assets/16402963/b57c02d7-ed81-4381-bc29-cfc72692e995)
+  * The field of causal inference or causal modeling attempts to do this by proposing:
+     * formal definitions of causal effects
+     * assumptions necessary to identify causal effects from data
+     * rules about what variables need to be controlled for
+     * sensitivity analyses to determine the impact of violations of assupmtions on conclusions 
+  * A brief history
+     * re-introduction of potential outcomes; Rubin causal model (Rubin 1974)
+     * Causal diagrams (Greenland and Robins 1986; Pearl 2000)
+     * Propensity scores (Rosenbaum and Rubin 1983)
+     * Time-dependent confounding (Robins 1986; Robins 1997)
+     * Optimal dynamic treatment strategies (Nurphy 2003; Robins 2004)
+     * Targeted Learning (van der Laan 2009) 
 * Causal Effect
-  * ![c3](https://github.com/jinfeijoy/causality/assets/16402963/20c8ae26-3667-4989-81c9-af0edcfb2f64)
-     * manupulated interventions are better defined and more actionable  
-  * ![c4](https://github.com/jinfeijoy/causality/assets/16402963/d4bb1f1e-78a1-4e6d-9fff-6421a803ab4a)
+  * we will primarily focus on treatments/exposures that could be thought of as interventions: treatments that we can imagine being randomized (manipulated) in a hypothetical trial
+     * there are, of course, causal effects of variables like age, race, gender, and obesity, but they do not fit as cleanly in the potential outcomes framework
+     * we focus on causal effects of hypothetical interventions because: their meaning is well defined / potentially actionable   
+  * Average causal effect
+     * E(Y1-Y0)
+        * average value of Y if everyone was treated with A=1 minus the average value of Y if everyone was treated with A=0
+        * if Y is binary this is a risk difference 
      * hard to get result based on single treatment, so can use average to represent causal effect 
-  * ![c5](https://github.com/jinfeijoy/causality/assets/16402963/687e5ee8-5da2-4061-b61e-391a55db15e0)
-  * ![c6](https://github.com/jinfeijoy/causality/assets/16402963/1b4824d8-d0fb-4a1a-8e76-1cfa73a558f8)
-  * ![c7](https://github.com/jinfeijoy/causality/assets/16402963/e7d3119f-8fd6-437a-a224-662af8458f2e)
+  * Conditioning Versus Setting
+     * E(Y|A=1):means of Y among people with A=1
+     * E(Y1): means of Y if the whole population was treated with A=1
+     * E(Y|A=1)-E(Y|A=0) is generally NOT a causal effect, because it is comparing two different populations of people.
+     * E(Y1-Y0) is a causal effect, because it is comparing what would happen if the same people were treated with A=1 versus if the same people were treated with A=0 
+  * Other causal effects:
+     * E(Y1/Y0): causal relative risk
+     * E(Y1-Y0|A=1): causal effect of treatment on the treated
+        * might be interested in how well treatment works amoung treated people 
+     * E(Y1-Y0|V=v): average causal effect in the subpopulation with covariate V=v
+  * Challange:
+     * How do we use observed data to link observed outcomes to potential outcomes
+     * What assumptions are necessary to estimate causal effects from observed data 
 * Causal Assumptions
-   * Stable Unit Treatment Value Assumption (SUTVA)
-      * ![IMG_2425](https://github.com/jinfeijoy/causality/assets/16402963/e89c1551-04c6-4a4a-b4fa-0db1b0dcedfe)
+   * Stable Unit Treatment Value Assumption (SUTVA): allows us to write potential outcome for the ith person in terms of only that person's treatments
+      * No interference:
+         * units do not interfere with each other
+         * treatment assignment of one unit does not affect that outcome of another unit
+         * spillover or contagion are also terms of interference 
+      * One version of treatment
+        
    * Consistency
-      * ![IMG_2430](https://github.com/jinfeijoy/causality/assets/16402963/aa43013c-6fb4-42c1-a088-b6b99a9542dd)
+      * The potential outcome under treatment A=a, Ya, is equal to the observed outcome if the actual treatment received is A=a:
+         * Y = Ya if A = a for all a 
    * Ignorability
-      * ![IMG_2426](https://github.com/jinfeijoy/causality/assets/16402963/8744269a-de36-4d6f-bd4f-04f82ffed0f4)
-      * ![IMG_2427](https://github.com/jinfeijoy/causality/assets/16402963/3e403513-4a40-4620-b78b-ce770ed02263)
+      * Given pre-treatment covariates X, treatment assignment is independent from the potential outcomes
+         * among people with the same values of X, we can think of treatment A as being randomly assigned 
+      * Observed data and potential outcomes
+         * we can put those assumptions together to identify causal effects
+         * E(Y|A=a,X=x) involves only observed data
+         * E(Y|A=a,X=x) = E(Ya|A=a,X=a) (by consistency) = E(Ya|X=x) (by ignorability)
+         * if we want a marginal causal effect, we can average over X
    * Positivity
-      * ![IMG_2431](https://github.com/jinfeijoy/causality/assets/16402963/b595581a-e281-495f-b6ed-18537247665e)
+      * for every set of values for X, treatment assignment was not deterministic:
+         * P(A=a|X=x)>0 for all a and x
+      * if for some value of X, treatment was deterministic, then we would have no observed value of Y for one of the treatment groups for those values of X.
+      * Variability in treatment assignment is important for identification. 
 * Stratification
-     * ![IMG_2428](https://github.com/jinfeijoy/causality/assets/16402963/19098a8b-d7f5-4e1d-a30b-5779bd81d391)
-     * ![IMG_2429](https://github.com/jinfeijoy/causality/assets/16402963/78a2e014-aad8-4ed4-bd12-8fb1fa8e45d4)
+   * Standardization example
+      * compute rate of MACE for saxagliptin and sitagliptin initiators in two subpopulations
+         * patients who have had no prior OAD use
+         * pations who have had OAD use
+      * then take weighted average, where weights are based on proportion of people in each subpopulation
+      * This is a causal effect if, within levels of the prior OAD use variable, treatment can be thought of as randomized (ignorability given prior OAD use)   
+   * Conditioning and marginalizing
+      * under certain assumptions: E(Y|A=a, X=x) = E(Ya|X=x)
+      * if we want a marginal causal effect, we can average over the distribution of X, suppose there is a single categorical X variable, then, E(Ya) = SUM E(Y|A=a,X=x)P(X=x) 
 *  Incident user and active comparator design
    * example as to estimate taking yoga's impact to blood presure, to design the event, taking snapshot will lose the information that people take yoga before centain period and then stop. in this case, we need to pick the data point that people initial yoga as first time, it's easy to find out cut-off time for active event, but it's hard to define time for non-active user (group of people not taking yoga class). In this case, we may need to find other active comparator, i.e. take zomba class. By doing so, the design will change and narrow.
-   * ![Screen Shot 2024-06-03 at 1 39 14 PM](https://github.com/jinfeijoy/causality/assets/16402963/e859c254-2fde-4e58-ace3-f7128a4ba611)
-  
+   * Other considerations
+      * It is not always possible to implement an incident user design (e.g. causal effect of air pollution)
+      * sometimes no treatment (unexposed) is the comparison group of interest
+      * in this lecture we have focused design issues on the causal effect of the decision to initiate a treatment
+        * causal methods exist that can handle time-varying treatments (causal effect of treatment regimens over time  
+
+## Week2
 
 
 
