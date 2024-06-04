@@ -145,6 +145,9 @@
    * backdoor path: from treatment A to outcome Y are paths from A to Y that travel through arraows going into A:
       * ![Screen Shot 2024-06-04 at 11 48 46 AM](https://github.com/jinfeijoy/causality/assets/16402963/39a2b29d-1d70-4faa-ad9f-9202f87adb9d)
       * Here A<-X->Y is a backdoor path from A to Y
+      * backdoor paths confound the relationship between A and Y, those need to be blocked.
+      * to sufficiently control for confounding, must identify a set of variables that block all backdoor paths from treatment to outcome.
+      * if X is this set of variables, then: Y0, Y1 independent A given X
  
 * Backdoor path criterion
 * Disjunctive cause criterion
