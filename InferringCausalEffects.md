@@ -79,9 +79,43 @@
         * causal methods exist that can handle time-varying treatments (causal effect of treatment regimens over time  
 
 ## Week2
+* Confounding
+   * Confounder control: we are interested in:
+      * identify a set of variables X that will make the ignorability assumption hold
+         * if we do this then the set of variables is sufficient to control for confounding 
+      * using statistical methods to control for those variables and estimate causal effects
+* Causal graphs: helpful for identifying which variables to control for
+   * DAGs: No undirected paths, No cycles
+* Relationship between DAGs and probability distributions
+   * a DAG will tell us:
+      * which variables are independent from each other
+      * which variables are conditionally independent from each other
+      * i.e. ways that we can factor and simplify the joint distribution 
+   *  ![Screen Shot 2024-06-04 at 10 19 31 AM](https://github.com/jinfeijoy/causality/assets/16402963/abca2659-c862-4620-873f-e92cfd8bb096)
+   *  ![Screen Shot 2024-06-04 at 10 21 34 AM](https://github.com/jinfeijoy/causality/assets/16402963/abd8d544-a074-49d7-a012-33b0bebb47a5)
+   *  ![Screen Shot 2024-06-04 at 10 23 18 AM](https://github.com/jinfeijoy/causality/assets/16402963/2c8cdfdd-6150-4e84-9a12-5a4b4f1f805b)
+   *  ![Screen Shot 2024-06-04 at 10 25 11 AM](https://github.com/jinfeijoy/causality/assets/16402963/a123fde5-5114-44b4-9f7e-26dc004f23a9)
+   *  ![Screen Shot 2024-06-04 at 10 25 59 AM](https://github.com/jinfeijoy/causality/assets/16402963/4976c398-81de-42f5-99a6-e286b1576ff3)
+   *  ![Screen Shot 2024-06-04 at 10 27 09 AM](https://github.com/jinfeijoy/causality/assets/16402963/a770217c-5ac1-4c10-99c9-51dde3cca1b1)
+* Path and associations
+   * types of paths
+       * Forks: D<-E->F
+       * Chains: D->E->F
+       * Inverted forks: D->E<-F 
+   *  Associations:
+       * if nodes A and B are on the ends of a path, they are associated if
+          * some information flows to both of them (forks)
+          * information from one makes it to the other (chains)
+       * inverted forks: not association
+          * information from A and B collide at G: A->G<-B
+          * G is known as collider
+          * A and B both affect G:
+            * information does not flow from G either A or B
+            * So A and B independent (if this was the only path between them)        
+* Conditional independent (d-seperation)
+* Confounding revisited
+* Backdoor path criterion
+* Disjunctive cause criterion
 
-
-
-  
    
 * 
