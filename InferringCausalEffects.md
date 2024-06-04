@@ -113,6 +113,27 @@
             * information does not flow from G either A or B
             * So A and B independent (if this was the only path between them)        
 * Conditional independent (d-seperation)
+   * Blocking
+      * consider the path A->G->B, if we condition on G, we block the path from A to B.
+      * Suppose temperature (A) affects whether or not sidewalks are icy (G), which affects whether or not someone falls (B): A->G->B. However, if we restrict to situations where sidewalks are icy (condition on G) then temperature and falling are not associated via this path.
+      * associations on a fork can also be blcoked: considering the path A<-G->B, if we condition on G, this path from A to B is blocked.
+      * consider the path: A->G<-B, here A and B are not associated via this path (information collides at G), however, conditioning on G include an association between A and B.  
+   *  Conditioning on collider
+      * suppose:
+         * A is the state of an on/off switch
+         * B is the state of a different on/off switch
+         * G is whether the lightbulb is lit up
+         * A is determined from a coin flip, B is determined from a separate, independent coin flip, G is lit up only if both A and B are in the on state.
+      * Then:
+         * A and B are independent, if I tell you that b is on, it tells you nothing about A
+         * A and B are dependent, given G, if I tell you that the light is off(G), then A must be off if B is on, and vice versa
+   * D-seperation
+      * Rules for d-seperation
+         * a path is d-seperated by a set of nodes C if:
+            * it contains a chain (D->E->F) and the middle part is in C OR
+            * it contains a fork (D<-E->F) and the middle part is in C OR
+            * it contains an inverted fork (D->E<-F) and the middle part is not in C, nor are any descendants of it
+      * two nodes, A and B, are d-seperated by a set of nodes C if it blocks every path from A to B
 * Confounding revisited
 * Backdoor path criterion
 * Disjunctive cause criterion
