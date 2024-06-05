@@ -160,8 +160,18 @@
 
 ## Week3   
 * Observational studies
-   *  Setup
-      * given X is sufficient to control for confounding: <img width="603" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/1e61638b-23f9-435c-bb64-bf31eeb3af07">, in a randomized trail, treatment assignment A would be determined by a coin toss - effectively erasing the arrow from X to A: <img width="249" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/548d2654-f39c-4ae4-80f3-cf03bcbf7a4c">
-
+   *  Randomized Trail
+      * given X is sufficient to control for confounding: <img width="206" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/1b62e2d2-3538-432f-81f5-92cfbf48dc76">
+      * in a randomized trail, treatment assignment A would be determined by a coin toss - effectively erasing the arrow from X to A: <img width="249" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/548d2654-f39c-4ae4-80f3-cf03bcbf7a4c">, no backdoor paath from A to Y
+      * in randomized trail: the distribution of X will be the same in both treatment groups, thus, if the outcome distribution ends up differing, it will not be because of differences in X 
+   * Observational studies
+      *  planned,  prospective, observational studies with active data collection
+         * like trails: data collected on a common set of variables at planned times; outcomes carefully measured, study protocols
+         * unlike trails: regulations much weaker, since not intervening; broader population eligible for the study
+     * Dtabases, retrospective, passive data collection
+        * e.g. electronic medical records; claims; registries
+        * large sample size; inexpensive; potential for rapid analysis
+        * data quality typically lower; no uniform standard of collection 
+   * 
   
 * 
