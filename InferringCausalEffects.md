@@ -218,8 +218,15 @@
            * repeat many times and see how unusual observed statistic is
            * this test is equivalent to McNemar test for paired data :<img width="707" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/3bb850b0-052d-4eb9-ac15-3713a94c6790">
            * could also use a paired t-test for continuous data: <img width="698" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/5129445f-00fe-4adb-90cb-6a9c3f44827b">
-
      *  estimate a treatment effect and confidence interval
      *  methods should take matching into account
+     *  Other outcome models:
+        * conditional logistic regression : matched binary outcome data
+        * stratified cox model
+           * time-to-event (survival) outcome data
+           * baseline hazard stratified on matched sets 
+        * generalized estimating equiations (GEE)
+           * Match ID variable used to specify cluster
+           * for binary outcomes, can estimate a causal risk difference, causal risk ratio, or causal odds ratio (depending on link function)
   * sensitivity analysis
 * 
