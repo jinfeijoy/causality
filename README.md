@@ -12,3 +12,5 @@
 * [The book of why & Crash course in causality](https://cyeninesky3.medium.com/causal-inference-%E5%9B%A0%E6%9E%9C%E9%9D%A9%E5%91%BD%E8%88%87-crash-course-in-causality-%E7%AD%86%E8%A8%98-b033107264f8)
 * [The Traps of Blindly Trusting Data: Simpson’s Paradox](https://pub.towardsai.net/the-traps-of-blindly-trusting-data-simpsons-paradox-48a6ddad7029)
 * [Causal Inference: An Intuitive Introduction](https://arshren.medium.com/causal-inference-an-intuitive-introduction-feb552fae0f7)
+* [Visualizing Causality Using Causal Graphs](https://arshren.medium.com/visualizing-causality-using-causal-graphs-fd66e356576f)
+* [How Biases Impact Causal Inference?](https://arshren.medium.com/how-biases-impact-causal-inference-facee842896b)
