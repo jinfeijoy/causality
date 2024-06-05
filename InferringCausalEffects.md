@@ -182,8 +182,42 @@
       * replace each covariate value with its rank
       * constand diagonal on covariance matrix
       * calculate the usual mahalanobis distance on the ranks 
-   * greedy (nearest neighbor) matching: not as good, but computationally fast
-      *  
+   * greedy (nearest neighbor) matching: not as good, but computationally fast (not globally optimal)
+      *  Steps
+         *  randomly order your list of treated subject and control subjects
+         *  start with the first treated subject, match to the control with the smallest distance
+         *  remove the matched control from the list of available matches
+         *  move on to the next treated subject, match to the control with the smallest diatnce
+         *  repeat step 3 and 4 until you have matched all treated subjects
+      *  R package: Matchlt
+      *  tradeoffs:
+         *  pair matching
+            * closer matches / faster computing time  
+         *  many-to-one
+            * larger sample size  
+         *  largely a bias-variance tradeoff issue
+      * Caliper: maximum acceptable distance 
    * optimal matching: better, but computationally demanding
-* Assessing balance
+      *  minimize global distance measure
+      *  computationally demanding
+      *  R package: optmatch / rcbalance
+  * Assessing balance: how to check whether matching seemed to work
+     * hypothesis test and p-value: two sample t-test / report p-value for each test, drawback: p-value are dependent on sample size, small difference in means will have a small p-value if the sample size is large
+     * covariate balance - standardized difference: <img width="517" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/b7675d18-48a8-4b19-9ad0-5153834c22ef">
+        * does not depend on sample size
+        * often, absolute value of smd is reported
+        * calculate for each variable that you match on
+        * rules of thumb: value < 0.1 indicate adequate balance / value between 0.1-0.2 are not too alarming / value > 0.2 indicate serious imbalance
+        * example: <img width="744" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/8f2a2918-8995-41c7-be6b-c1d5dd969b25">
+  * Analyzing data after matching
+     *  test for a treatment test
+        * randomization test (permutation test / exact test)
+           * compute test statistic from observed data
+           * assume null hypothesis of no treatment effect is true
+           * randomly permute treatment assignment within pairs and recompute test statistics (switch treated result with control result)
+           * repeat many times and see how unusual observed statistic is
+           * this test is equivalent to McNemar test for paired data :<img width="707" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/3bb850b0-052d-4eb9-ac15-3713a94c6790">
+     *  estimate a treatment effect and confidence interval
+     *  methods should take matching into account
+  * sensitivity analysis
 * 
