@@ -156,9 +156,12 @@
       * ![Screen Shot 2024-06-04 at 11 58 58 AM](https://github.com/jinfeijoy/causality/assets/16402963/d147c1c9-0b34-4153-b830-07eec2b3bcc0)
       * ![Screen Shot 2024-06-04 at 12 00 12 PM](https://github.com/jinfeijoy/causality/assets/16402963/7b1bc246-1784-4dd5-a5f7-af2d86b83a53)
       * ![Screen Shot 2024-06-04 at 12 01 16 PM](https://github.com/jinfeijoy/causality/assets/16402963/5084f3be-2890-48bd-a5e6-f5f1b99b0f94)
-
-
 * Disjunctive cause criterion
 
-   
+## Week3   
+* Observational studies
+   *  Setup
+      * given X is sufficient to control for confounding: <img width="603" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/1e61638b-23f9-435c-bb64-bf31eeb3af07">, in a randomized trail, treatment assignment A would be determined by a coin toss - effectively erasing the arrow from X to A: <img width="249" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/548d2654-f39c-4ae4-80f3-cf03bcbf7a4c">
+
+  
 * 
