@@ -172,6 +172,18 @@
         * e.g. electronic medical records; claims; registries
         * large sample size; inexpensive; potential for rapid analysis
         * data quality typically lower; no uniform standard of collection 
-   * 
-  
+   * in observational studies, the distribution of X will differ from treatment groups, for example, if older people are more likely to get A=1.
+   * Matching: is a method that attempts to make an observational study more like a randomized trail: match individuals in the treated group (A=1) to individuals in the control group (A=0) on the covariates X.
+      * once data are matched, essentially treated as if from a randomized trail 
+* Mathcing
+   * target population: we are making the distribution of covariates in the control population look like that in the treated population
+   * Mahalanobis distance: <img width="469" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/9b83d285-6791-4eb5-9da0-038313adb4c9">,  where S = cov(X)
+   * robust mahalanobis distance: can deal with outliers properly by:
+      * replace each covariate value with its rank
+      * constand diagonal on covariance matrix
+      * calculate the usual mahalanobis distance on the ranks 
+   * greedy (nearest neighbor) matching: not as good, but computationally fast
+      *  
+   * optimal matching: better, but computationally demanding
+* Assessing balance
 * 
