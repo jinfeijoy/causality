@@ -217,6 +217,8 @@
            * randomly permute treatment assignment within pairs and recompute test statistics (switch treated result with control result)
            * repeat many times and see how unusual observed statistic is
            * this test is equivalent to McNemar test for paired data :<img width="707" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/3bb850b0-052d-4eb9-ac15-3713a94c6790">
+           * could also use a paired t-test for continuous data: <img width="698" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/5129445f-00fe-4adb-90cb-6a9c3f44827b">
+
      *  estimate a treatment effect and confidence interval
      *  methods should take matching into account
   * sensitivity analysis
