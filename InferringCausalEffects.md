@@ -1,5 +1,7 @@
 # Inferring Causal Effects
 
+* [Notes by T Yun](https://tyun.io/p/causal-inference-course-note1/)
+
 ## Week1
 * Confusion over Causality
   * The field of causal inference or causal modeling attempts to do this by proposing:
