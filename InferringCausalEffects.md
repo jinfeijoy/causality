@@ -240,5 +240,54 @@
      * we can then increase Gamma until evidence of treatment effect goes away (no longer statistically significant), once Gamma close to 1, sensitive to unmeasured confounding (hidden bias), if Gamma >> 1, not sensitive to unmeasured confounding
      * R package: sensitivity2x2xk, sensitivityfull
   * [R Code](https://www.coursera.org/learn/crash-course-in-causality/lecture/TZ01D/data-example-in-r)
+* Propensity Score
+  * Propensity score: the probability of receiving treatment, rather than control, given covariates X, define A=1 for treatment and A=0 for control, propensity score PI = P(A=1|X) (i.e. P(A=1|age=60)>P(A=1|age=30))
+  * balancing score: 2 subjects have same propensity score, but they possibly have different covariate values X
+     * despite the different covariate values, they were both equally likely to have been treated.
+        * this means that both subjects X is just as likely to be found in the treatment group
+        * if you restrict to a subpopulation of subjects who have the same value of the propensity score, there should be balance in the two treatment groups
+        * the propensity score is a balancing score
+     * P(X=x|PI(X)=p, A=1) = P(X=x|PI(X)=p, A=0)
+     * IF WE MATCH ON THE PROPENSITY SCORE, WE SHOULD ACHIEVE BALANCE
+     * conditioning on propensity score,  is conditioning on an allocation probability
+  * estimated propensity score
+     * in randomized trail, the propensity score is generally known (e.g. P(A=1|X)=P(A=1)=0.5
+     * In observational study, it will be unknown
+     * we need to estimate P(A=1|X)
+        * the outcome here is A, which is binary
+        * we therefore could estimate the propensity score using logistic regression
+          * fit a logistic regression model: outcome A, covariate X
+          * from that mode, get the predicted probability for each subject  
+  * Propensity score matching
+     * Overlap: once propensity score is estimated, it's usful to look for overlap: compare the distribution of the propensity score for treated and control subjects
+        * <img width="853" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/f2454c97-4a05-44d9-84e8-bad904452b35">
+        * <img width="866" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/72ce0fb9-7372-43f9-9e04-8271360e626a">
+        * jitter plot <img width="584" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/aaee5d34-c0fc-4337-8ba7-849759aaae65">
 
-* 
+  
+     * trimming tails:
+        * if there is a lack of overlap, trimming the tails is an option
+           * this means removing subjects who have extrame values of the propensity score
+              * removing:
+                 * control subjects whose propensity score is less than the minimum in the treatment group
+                 * treated subjects whose propensity score is greater than the maximum in the control group  
+     * Matching
+        * we can proceed by computing a distance between the propensity score for each treated subject with every control
+        * in practice, logit (log-odds) of the propensity score is often used, rather than the propensity score itself
+           * the propensity score is bounded between 0 and 1, making many values seems similar
+           * logit of the propensity score is unbounded - this transformation essentially stretches the distribution, while preserving ranks
+           * match on logit(PI) rather than PI   
+     * Caliper
+        * to ensure that we do not accept any bad matches, a caliper can be used, caliper is the maximum distance that we are willing to tolerate
+        * in practice, a common choice for a caliper is the 0.2 times the standard deviation of logit of the propensity score
+           * estimate the propensity score
+           * logit-transform the propensity score
+           * take the standard deviation of this transformed variable
+           * set the caliper to 0.2 times the value from previous step
+           * smaller caliper - less bias, more variable 
+     * After matching
+        * the outcome analysis methods can be the same as would be used if matching directly on covariates
+           * randomization tests
+           * conditional logistic regression, GEE, stratified cox model
+           * jitter plot
+     * [R Code](https://www.coursera.org/learn/crash-course-in-causality/lecture/VtFdu/propensity-score-matching-in-r)
