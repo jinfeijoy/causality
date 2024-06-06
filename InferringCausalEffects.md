@@ -229,4 +229,16 @@
            * Match ID variable used to specify cluster
            * for binary outcomes, can estimate a causal risk difference, causal risk ratio, or causal odds ratio (depending on link function)
   * sensitivity analysis
+     * possible hidden bias
+        * matching aims to achieve balance on observed covariates: overt bias could occur if there was imbalance on observed covariates
+        * there is no guarantee that matching will result in balance on variable that we didn't match on: hidden bias: if these unobserved variables are confounders  
+     * main idea: if there is hidden bias, determine how severe it would have to be to change conclusions
+        * change from statistically significant to not (if there is hidden bias, how severe would it have to be before conclusions changed)
+        * change in direction of effect (how much bias would there have to be before design actually changed so where we would have a different direction of the treatment effect.)
+     * <img width="746" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/561c5b3d-bc14-4ae8-87cc-6bce3940db4e">
+     * suppose we have evidence of a treatment effect: this is under the assumption that Gamma = 1, assume no hidden bias
+     * we can then increase Gamma until evidence of treatment effect goes away (no longer statistically significant), once Gamma close to 1, sensitive to unmeasured confounding (hidden bias), if Gamma >> 1, not sensitive to unmeasured confounding
+     * R package: sensitivity2x2xk, sensitivityfull
+  * [R Code](https://www.coursera.org/learn/crash-course-in-causality/lecture/TZ01D/data-example-in-r)
+
 * 
