@@ -14,3 +14,5 @@
 * [Causal Inference: An Intuitive Introduction](https://arshren.medium.com/causal-inference-an-intuitive-introduction-feb552fae0f7)
 * [Visualizing Causality Using Causal Graphs](https://arshren.medium.com/visualizing-causality-using-causal-graphs-fd66e356576f)
 * [How Biases Impact Causal Inference?](https://arshren.medium.com/how-biases-impact-causal-inference-facee842896b)
+* [How to Control Causal Inference Bias?](https://arshren.medium.com/how-to-control-causal-inference-bias-f038489a7be6)
+* [Essential Steps to Unveil the Structure Behind Cause and Effect](https://medium.com/@arshren/essential-steps-to-unveil-the-structure-behind-cause-and-effect-242d313e57dd)
