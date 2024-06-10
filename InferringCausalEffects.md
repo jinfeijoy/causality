@@ -265,8 +265,6 @@
         * <img width="853" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/f2454c97-4a05-44d9-84e8-bad904452b35">
         * <img width="866" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/72ce0fb9-7372-43f9-9e04-8271360e626a">
         * jitter plot <img width="584" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/aaee5d34-c0fc-4337-8ba7-849759aaae65">
-
-  
      * trimming tails:
         * if there is a lack of overlap, trimming the tails is an option
            * this means removing subjects who have extrame values of the propensity score
@@ -293,3 +291,75 @@
            * conditional logistic regression, GEE, stratified cox model
            * jitter plot
      * [R Code](https://www.coursera.org/learn/crash-course-in-causality/lecture/VtFdu/propensity-score-matching-in-r)
+
+## Week4 Inverse Probability of Treatment Weighting (IPTW)
+* [Notes by T Yun](https://tyun.io/p/causal-inference-course-note1/)
+
+## Week5 Instrumental Variables Methods
+* Instrumental Variables Introduction
+   * suppose there are unmeasured/obonbserved variables, U that affect A and Y. Then we have unmeasured confounding. <img width="159" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/42d2d270-0a29-4ea9-8cb3-002a1f671383">
+   * If there is unmeasured confounding, cannot marginalize over all confounders (via matching, IPTW, etc)
+   * IV method does not focus on the average causal effect for the population, they focus on a **local average treatment effect**
+   * instrument variables (IV) is an alternative causal inference method that does not rely on the ignorrability assumption.
+      * it affect treatment, but does not directly affect the outcome
+      * think of Z as encouragement: <img width="288" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/2cc47338-0308-402a-9562-1c15c7a2d5cc">
+      *  an intention-to-treat analysis would focus on the causal effect of encouragement
+* Randomized trails with noncompliance
+   * Setup
+      * Z: randomization to treatment
+      * A: treatment received
+      * Y: outcome
+      * Note: typically, not everyone assigned treatment will actually receive the treatment (non-compliance)
+  * DAG
+      * Non-compliance makes a randomized trail like an observational study
+      * there could be confounding based on treatment received
+      *  <img width="294" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/a57a4888-b400-4542-ab6b-9876fbae9c68">
+  *  Causal effect of assignment on receipt
+      * we can think of the average causal effect of treatment assignment on treatment received as  E(A1-A0)
+      * This is generally estimable from the observed data, by randomization and consistency: E(A1) = E(A|Z=1), E(A0) = E(A|Z=0)  
+      * we can think of the average causal effect of treatment assignment on outcome as  E(Y1-Y0)
+* Compliance Classes
+   * potential value of treatment: <img width="620" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/0f2934a5-be6d-4360-8214-8e2ce064cba5">
+      * never takers: do not take treatment, regardless of randomization: encouragement does not work; we would not learn anything about the efect of treatment in this subpopulation, as there is no variation in treatment received
+      * **compliers**: take treatment when encouraged to, and do not otherwies. in this group, treatment received is randomized
+      * defiers: do the opposite of what they are encouraged to do, in this group treatment received is also randomized, but in the opposite way
+      * always-takers: always take treatment, in this group there is no variation in treatment received. no information about causal effect 
+      * 
+   * local average treatment effect
+      * the target of inference is: <img width="615" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/2263cb73-3029-4da5-95dc-d1181fdc0565">
+      * known as complier average causal effect (CACE)
+         * this is a causal effect in a subpopulation
+         * a local causal effect
+         * no inference about defiers, always-takers, or never-takers
+   * Observed data
+      * <img width="884" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/c48df328-16b9-4873-a444-195f33324349">
+      * challange: without additional assumption, we cannot classify each subject into one of these categories, we can narrow it down to two options, however
+* Assumptions
+   * Assumptions about IVs: a variable is an IV if:
+      * it is associate with the treatment
+      * it affects the outcome only through its effect on treatment (cannot directly or indirectly through its effect on U, affect the outcome), this is known as exclusion restriction
+         * <img width="512" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/05a8c060-21d2-474a-b592-1a4c4787c78c">
+         * <img width="387" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/fbd43dbb-1b16-42b1-ba81-4728615dddec">
+   * Monotonicity assumption: there are no deliers
+      * no one consistently does the opposite of what they are told
+      * it is called monotonicity because the assumption is that the probability of treatment should increase with more encouragement
+      * <img width="878" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/e683791f-949f-4ec5-8826-10b98035318a">
+* Causal effect identification and estimation
+   * Identification of causal effects
+      * <img width="522" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/26dcf889-9ae2-483a-91af-4bd804afaa29">
+      * <img width="674" alt="image" src="https://github.com/jinfeijoy/causality/assets/16402963/e3f5878b-f162-4cc9-8663-9484a5fd639f">: among always takers and never takers, Z does nothing
+      * ![image](https://github.com/jinfeijoy/causality/assets/16402963/66772777-b166-424a-9b81-4893aad8385c)
+      * ![image](https://github.com/jinfeijoy/causality/assets/16402963/71fd8f0e-d638-4121-a258-0e8846a8042f)
+      * ![image](https://github.com/jinfeijoy/causality/assets/16402963/692e530c-f5d3-4b71-8667-1723f684912a)
+* IVs in observational studies
+   *  Examples
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/17144700-4348-45fc-a4c1-2fba48ae4e71), exclusion restriction: calendar time could be associated with the outcome if other treatment practices or patient behaviours changed during that time 
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/b7b7a2ea-c937-48b1-8001-e8d141f339f1)
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/a46260f3-5df0-4518-a9d6-d174b58dae36)
+
+
+
+   *  
+* Two stage least squares
+* Weak instruments
+* IV analysis in R
