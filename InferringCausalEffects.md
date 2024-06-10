@@ -369,4 +369,5 @@
    * strength of IVs: we can measure the strength of an instrument by estimate the proportion of compliers, estimate: E(A|Z=1)-E(A|Z=0)
    * A weak instrument causes problems: suppose only 1% of the population are compliers, if the sample size of our data set is n, then only 1% of n have useful information about treatment. this leads to very large variance estimates, estimate of causal effect unstable.
    * if the IV is weak, an IV analysis might not be the best option, it would likely produce confidence intervals that are too wide to be useful. 
-* IV analysis in R
+* [IV analysis in R](https://www.coursera.org/learn/crash-course-in-causality/lecture/D19Ae/iv-analysis-in-r)
+   * R package: ivpack 
