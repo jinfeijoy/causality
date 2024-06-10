@@ -356,10 +356,17 @@
       *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/17144700-4348-45fc-a4c1-2fba48ae4e71), exclusion restriction: calendar time could be associated with the outcome if other treatment practices or patient behaviours changed during that time 
       *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/b7b7a2ea-c937-48b1-8001-e8d141f339f1)
       *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/a46260f3-5df0-4518-a9d6-d174b58dae36)
-
-
-
-   *  
 * Two stage least squares
+   *  stage 1: ![image](https://github.com/jinfeijoy/causality/assets/16402963/9565de54-3cba-4771-a285-67899a95a69a)
+   *  stage 2: ![image](https://github.com/jinfeijoy/causality/assets/16402963/f4bbfb46-6b61-40d0-a380-c8ba69f2be36)
+   *  2SLS Estimator:
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/8e8cf79a-dab9-4bd9-9db0-acb74de090eb)
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/c7089d37-ab63-4aee-8413-6a88c109baf6)
+      *  ![image](https://github.com/jinfeijoy/causality/assets/16402963/33fb5658-4591-497e-b55e-a43c2342b54e)
+   * sensitivity analysis
+      * ![image](https://github.com/jinfeijoy/causality/assets/16402963/3f1d550b-1c87-4371-b3d3-a5bedccea26c)
 * Weak instruments
+   * strength of IVs: we can measure the strength of an instrument by estimate the proportion of compliers, estimate: E(A|Z=1)-E(A|Z=0)
+   * A weak instrument causes problems: suppose only 1% of the population are compliers, if the sample size of our data set is n, then only 1% of n have useful information about treatment. this leads to very large variance estimates, estimate of causal effect unstable.
+   * if the IV is weak, an IV analysis might not be the best option, it would likely produce confidence intervals that are too wide to be useful. 
 * IV analysis in R
