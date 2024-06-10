@@ -18,5 +18,6 @@
 * [Essential Steps to Unveil the Structure Behind Cause and Effect](https://medium.com/@arshren/essential-steps-to-unveil-the-structure-behind-cause-and-effect-242d313e57dd)
 * [Exploring Causality with DoWhy](https://medium.com/@arshren/exploring-causality-with-dowhy-8257732998e4)
 * [Sequential A/B Testing Keeps the World Streaming Netflix Part 1: Continuous Data](https://netflixtechblog.com/sequential-a-b-testing-keeps-the-world-streaming-netflix-part-1-continuous-data-cba6c7ed49df)
+* [A Survey of Causal Inference Applications at Netflix](https://netflixtechblog.com/a-survey-of-causal-inference-applications-at-netflix-b62d25175e6f)
 * [Round 2: A Survey of Causal Inference Applications at Netflix](https://netflixtechblog.com/round-2-a-survey-of-causal-inference-applications-at-netflix-fd78328ee0bb)
 * []()
