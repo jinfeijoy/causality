@@ -15,6 +15,8 @@
 * sentiment analysis to test assumption
 * IPTW to estimate causal effect
 
+## Resource
+* [Vanderbilt Biostatistics Datasets](https://hbiostat.org/data/)
   
 ## Medium
 * [Causal Loop Diagram](https://medium.com/%E6%96%87%E6%80%9D%E4%B8%8D%E8%97%8F%E7%A7%81/%E6%96%87%E6%80%9D%E4%B8%8D%E8%97%8F%E7%A7%81-%E7%B3%BB%E7%B5%B1%E6%80%9D%E8%80%83-%E5%9B%A0%E6%9E%9C%E8%BF%B4%E8%B7%AF%E5%9C%96%E5%88%9D%E6%8E%A2-85d2eea3313)
