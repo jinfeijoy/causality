@@ -8,12 +8,14 @@
 * [Inferring Causal Effects](https://github.com/jinfeijoy/causality/blob/main/InferringCausalEffects.md)
 * [Causal Diagram](https://github.com/jinfeijoy/causality/blob/main/Causal_Diagrams.md)
 
-## Numerical Steps
+## DAGs Numerical Steps
 * counfounding exploration
 * propensity score (greedy/optimal)
 * matching (with/without caliper)
 * sentiment analysis to test assumption
 * IPTW to estimate causal effect
+
+## CLDs as analysis tool
 
 ## Resource
 * [Vanderbilt Biostatistics Datasets](https://hbiostat.org/data/)
@@ -34,3 +36,11 @@
 * [Causal Discovery with Multivariate Time Series Data](https://medium.com/causality-in-data-science/causal-discovery-with-multivariate-time-series-data-a3f7ffc16747)
 * [A Quickstart for Causal Analysis Decision-Making with DoWhy](https://medium.com/geekculture/a-quickstart-for-causal-analysis-decision-making-with-dowhy-2ce2d4d1efa9)
 * [Using Causal Graphs to answer causal questions](https://towardsdatascience.com/using-causal-graphs-to-answer-causal-questions-5fd1dd82fa90)
+* **[Online Causal Diagram (and DAG) drawing / editing tools](https://medium.com/@causalwizard/online-causal-diagram-and-dag-drawing-editing-tools-900bb1815c86)**
+    * graph
+        * DAGs (Directed Acyclic Graph): identify causal effect
+        * CLDs (causal loop diagram): CLD does allow loops and is better suited to analysis of realtime systems and their interactions (as Systems Dynamics models). However, CLDs/System Dynamics are very sensitive to both topology (structural) changes and changes to the parameters or functions which describe edge and node behaviour, which means it can be difficult to generate systems that behave as expected. can be used as visualization tool, scoping tool, framing tool, simulation tool
+    * model
+        * associative models: (Structure equation models, graphical models, bayesian networks)
+        * causal models: (SCMs, Causal bayesian networks)
+* [Exploring the future: four ways to combine future scenarios with causal-loop diagrams](https://medium.com/in-too-deep/exploring-the-future-four-ways-to-combine-future-scenarios-with-causal-loop-diagrams-78a6869af05f)
