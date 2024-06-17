@@ -47,3 +47,4 @@
 * [Exploring the future: four ways to combine future scenarios with causal-loop diagrams](https://medium.com/in-too-deep/exploring-the-future-four-ways-to-combine-future-scenarios-with-causal-loop-diagrams-78a6869af05f)
 * [Supply Chain Root Cause Analysis with Causal AI](https://medium.com/causalens/supply-chain-root-cause-analysis-with-causal-ai-be73c78441f2)
 * [Implementing Supply Chain Causal Analysis using GenAI and Large Language Models (LLMs)](https://medium.com/@nayan.j.paul/implementing-supply-chain-causal-analysis-using-genai-and-large-language-models-llms-f52c085ed7da)
+* [Applying UML “Use Case Diagram” techniques: Warehouse Management System Analysis](https://medium.com/@nayan.j.paul/implementing-supply-chain-causal-analysis-using-genai-and-large-language-models-llms-f52c085ed7da)
